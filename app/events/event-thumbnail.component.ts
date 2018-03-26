@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from "@angular/core";
+import {Component, Input} from "@angular/core";
 
 @Component({
     selector: 'event-thumbnail',
@@ -10,11 +10,16 @@ import {Component, EventEmitter, Input, Output} from "@angular/core";
             <div>Price: \${{theEvent.price}}</div>
             <div>
                 <span>Location: {{theEvent.location.address}}</span>
-                <span>&nbsp;</span>
-                <span>{{theEvent.location.city}}, {{theEvent.location.country}}</span>
+                <span class="pad-left">{{theEvent.location.city}}, {{theEvent.location.country}}</span>
             </div>
         </div>
-    `
+    `,
+    styles: [
+        `
+            .pad-left { margin-left: 10px; }
+            .well div { color: #888; }
+        `
+    ]
 })
 export class EventThumbnailComponent {
     @Input() theEvent: any;
