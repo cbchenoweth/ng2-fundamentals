@@ -7,10 +7,13 @@ import {Component} from "@angular/core";
             <h1>Upcoming Angular 2 Events</h1>
             <hr>
             
-            <event-thumbnail
-                    *ngFor="let theEvent of events"
-                    [theEvent]="theEvent">
-            </event-thumbnail>
+            <div class="row">
+                <div class="col-md-5" *ngFor="let theEvent of events">
+                    <event-thumbnail
+                            [theEvent]="theEvent">
+                    </event-thumbnail>
+                </div>
+            </div>
         </div>
     `
 })
