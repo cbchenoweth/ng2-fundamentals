@@ -1,4 +1,4 @@
-import {Component, Input} from "@angular/core";
+import {Component, EventEmitter, Input, Output} from "@angular/core";
 
 @Component({
     selector: 'event-thumbnail',
@@ -13,9 +13,15 @@ import {Component, Input} from "@angular/core";
                 <span>&nbsp;</span>
                 <span>{{theEvent.location.city}}, {{theEvent.location.country}}</span>
             </div>
+            <button class="btn btn-primary" (click)="handleClickMe()">Click me!</button>
         </div>
     `
 })
 export class EventThumbnailComponent {
     @Input() theEvent: any;
+    @Output() eventClick = new EventEmitter();
+
+    handleClickMe() {
+        this.eventClick.emit('foo');
+    }
 }
