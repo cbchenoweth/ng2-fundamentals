@@ -5,8 +5,22 @@ import {Component} from "@angular/core";
     template: `
     <div>
         <h1>Upcoming Angular 2 Events</h1>
+        <hr>
+        <h2>{{event.name}}</h2>
     </div>`,
 })
 export class EventsListComponent {
-
+    event = {
+        id: 1,
+        name: 'Angular Connect',
+        date: '9/26/2036',
+        time: '10:00 am',
+        price: 599.99,
+        imageUrl: '/app/assests/images/angularconnect-shield.png',
+        location: {
+            address: '1057 DT',
+            city: 'London',
+            country: 'England'
+        }
+    };
 }
