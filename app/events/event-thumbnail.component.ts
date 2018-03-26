@@ -6,7 +6,8 @@ import {Component, Input} from "@angular/core";
         <div class="well hoverwell thumbnail">
             <h2>{{theEvent?.name}}</h2>
             <div>Date: {{theEvent?.date}}</div>
-            <div [ngSwitch]="theEvent.time">
+            <div [ngClass]="getStartTimeCssClass()" 
+                 [ngSwitch]="theEvent?.time">
                 Time: {{theEvent?.time}}
                 <span *ngSwitchCase="'8:00 am'">(Early Start)</span>
                 <span *ngSwitchCase="'10:00 am'">(Late Start)</span>
@@ -22,6 +23,8 @@ import {Component, Input} from "@angular/core";
     `,
     styles: [
         `
+            .green { color: #008800 !important; }
+            .bold { font-weight: bold; }
             .pad-left { margin-left: 10px; }
             .well div { color: #888; }
             .thumbnail {min-height: 210px;}
@@ -30,4 +33,9 @@ import {Component, Input} from "@angular/core";
 })
 export class EventThumbnailComponent {
     @Input() theEvent: any;
+
+    getStartTimeCssClass() {
+        let isEarlyStartTime = this.theEvent && this.theEvent.time === '8:00 am';
+        return {green: isEarlyStartTime, bold: isEarlyStartTime};
+    }
 }
