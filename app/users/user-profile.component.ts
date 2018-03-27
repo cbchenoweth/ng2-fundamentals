@@ -1,7 +1,8 @@
 import {Component, OnInit} from "@angular/core";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "./auth.service";
 import {Router} from "@angular/router";
+import {IUser} from "./user.model";
 
 @Component({
     templateUrl: 'app/users/user-profile.component.html',
@@ -14,10 +15,10 @@ export class UserProfileComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        let currentUser = this.authService.currentUser;
+        let currentUser = this.authService.currentUser || {} as IUser;
 
-        let firstName = new FormControl(currentUser && currentUser.firstName);
-        let lastName = new FormControl(currentUser && currentUser.lastName);
+        let firstName = new FormControl(currentUser.firstName, Validators.required);
+        let lastName = new FormControl(currentUser.lastName, Validators.required);
         this.profileForm = new FormGroup({
             firstName: firstName,
             lastName: lastName
@@ -29,8 +30,10 @@ export class UserProfileComponent implements OnInit {
     }
 
     saveProfile(formValues: any) {
-        this.authService.updateCurrentUser(formValues.firstName, formValues.lastName);
-        this.navigateToEventsRoute();
+        if(this.profileForm.valid) {
+            this.authService.updateCurrentUser(formValues.firstName, formValues.lastName);
+            this.navigateToEventsRoute();
+        }
     }
 
     private navigateToEventsRoute() {
