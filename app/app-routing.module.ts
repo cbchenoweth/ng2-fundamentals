@@ -8,13 +8,13 @@ const appRoutes: Routes = [
     {path: 'events/:id', component: EventDetailsComponent, canActivate: [EventRouteActivatorService]},
     {path: 'events', component: EventsListComponent, resolve: {events: EventListResolverService}},
     {path: 'errors/404', component: Error404Component},
-    {path: 'users', loadChildren: 'app/users/users.module#UsersModule'},
     {path: '', redirectTo: '/events', pathMatch: 'full'},
+    {path: 'users', loadChildren: 'app/users/users.module#UsersModule'},
 ];
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(appRoutes)
+        RouterModule.forRoot(appRoutes, {useHash: true})
     ],
     exports: [
         RouterModule
