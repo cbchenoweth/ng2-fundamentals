@@ -1,5 +1,4 @@
 import {Injectable} from "@angular/core";
-import {of} from "rxjs/observable/of";
 import {Subject} from "rxjs/Subject";
 
 @Injectable()
@@ -13,7 +12,7 @@ export class EventsService {
     }
 
     getEvent(id: number) {
-        return of(EVENTS.find(event => event.id === id));
+        return EVENTS.find(event => event.id === id);
     }
 }
 
