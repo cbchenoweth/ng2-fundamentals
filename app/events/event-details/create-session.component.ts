@@ -68,6 +68,6 @@ export class CreateSessionComponent implements OnInit {
             voters: []
         };
 
-        console.log(formValues);
+        console.log(newSession);
     }
 }
