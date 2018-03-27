@@ -25,8 +25,8 @@ export class NavBarComponent implements OnInit {
         return this.authService.isAuthenticated();
     }
 
-    getCurrentUserName() {
-        return this.authService.currentUser.userName;
+    getCurrentUserFirstName() {
+        return this.authService.currentUser.firstName;
     }
 
 }
