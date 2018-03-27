@@ -1,7 +1,6 @@
 import {Component, OnInit} from "@angular/core";
-import {EventsService} from "../shared/events.service";
 import {ActivatedRoute} from "@angular/router";
-import {IEvent} from "../shared";
+import {EventsService, IEvent, ISession} from "../shared/index";
 
 @Component({
     templateUrl: '/app/events/event-details/event-details.component.html',
@@ -9,11 +8,14 @@ import {IEvent} from "../shared";
         `
             .container {padding-left: 20px; padding-right: 20px;}
             .event-image {height: 100px}
+            a {cursor: pointer}
         `
     ]
 })
 export class EventDetailsComponent implements OnInit {
     private theEvent: IEvent;
+    private addMode: boolean;
+
     constructor(private eventService: EventsService, private route: ActivatedRoute) {
 
     }
@@ -21,5 +23,17 @@ export class EventDetailsComponent implements OnInit {
     ngOnInit(): void {
         const id = +this.route.snapshot.params['id'];
         this.theEvent = this.eventService.getEvent(id);
+    }
+
+    addSession() {
+        this.addMode = true;
+    }
+
+    addNewSession(newSession: ISession) {
+        const maxCurrentId = Math.max.apply(null, this.theEvent.sessions.map(s => s.id));
+        newSession.id = maxCurrentId + 1;
+        this.theEvent.sessions.push(newSession);
+        this.eventService.updateEvent(this.theEvent);
+        this.addMode = false;
     }
 }
