@@ -1,4 +1,5 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
+import {AuthService} from "../users/auth.service";
 
 @Component({
     selector: 'nav-bar',
@@ -12,6 +13,20 @@ import {Component} from "@angular/core";
         `
     ]
 })
-export class NavBarComponent {
+export class NavBarComponent implements OnInit {
+    constructor(private authService: AuthService) {
+
+    }
+
+    ngOnInit(): void {
+    }
+
+    isAuthenticated() {
+        return this.authService.isAuthenticated();
+    }
+
+    getCurrentUserName() {
+        return this.authService.currentUser.userName;
+    }
 
 }
