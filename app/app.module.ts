@@ -8,6 +8,7 @@ import {EventsService} from "./events/shared/events.service";
 import {ToastrService} from "./common/toastr.service";
 import {EventDetailsComponent} from "./events/event-details/event-details.component";
 import {AppRoutingModule} from "./app-routing.module";
+import {CreateEventComponent} from "./events/create-event.component";
 
 @NgModule({
     imports: [
@@ -19,6 +20,7 @@ import {AppRoutingModule} from "./app-routing.module";
         EventsListComponent,
         EventThumbnailComponent,
         EventDetailsComponent,
+        CreateEventComponent,
         NavBarComponent
     ],
     providers: [
