@@ -9,6 +9,7 @@ import {NavBarComponent} from "./nav/nav-bar.component";
 import {ToastrService} from "./common/toastr.service";
 import {AppRoutingModule} from "./app-routing.module";
 import {Error404Component} from "./errors/404.component";
+import {AuthService} from "./users/auth.service";
 
 @NgModule({
     imports: [
@@ -29,7 +30,8 @@ import {Error404Component} from "./errors/404.component";
         ToastrService,
         EventRouteActivatorService,
         {provide: 'canDeactivateCreateEvent', useValue: checkCreateEventComponentDirtyState},
-        EventListResolverService
+        EventListResolverService,
+        AuthService
     ],
     bootstrap: [
         EventsAppComponent
