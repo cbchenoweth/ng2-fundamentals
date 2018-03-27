@@ -26,7 +26,7 @@ export class UserProfileComponent implements OnInit {
     ngOnInit(): void {
         let currentUser = this.authService.currentUser || {} as IUser;
 
-        this.firstName = new FormControl(currentUser.firstName, Validators.required);
+        this.firstName = new FormControl(currentUser.firstName, [Validators.required, Validators.pattern('[a-zA-Z].*')]);
         this.lastName = new FormControl(currentUser.lastName, Validators.required);
         this.profileForm = new FormGroup({
             firstName: this.firstName,
