@@ -10,10 +10,13 @@ import {ToastrService} from "./common/toastr.service";
 import {AppRoutingModule} from "./app-routing.module";
 import {Error404Component} from "./errors/404.component";
 import {AuthService} from "./users/auth.service";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
     imports: [
         BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
         AppRoutingModule
     ],
     declarations: [
