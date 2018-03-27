@@ -1,5 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Subject} from "rxjs/Subject";
+import {IEvent} from "./event.model";
 
 @Injectable()
 export class EventsService {
@@ -16,7 +17,7 @@ export class EventsService {
     }
 }
 
-const EVENTS = [
+const EVENTS: IEvent[] = [
     {
         id: 1,
         name: 'Angular Connect',
