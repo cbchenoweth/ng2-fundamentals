@@ -1,4 +1,5 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
+import {Router} from "@angular/router";
 
 @Component({
     template: `
@@ -9,10 +10,18 @@ import {Component} from "@angular/core";
             <br />
             <br />
             <button type="submit" class="btn btn-primary">Save</button>
-            <button type="button" class="btn btn-default">Cancel</button>
+            <button type="button" class="btn btn-default" (click)="cancelClickedHandler()">Cancel</button>
         </div>
     `
 })
-export class CreateEventComponent {
+export class CreateEventComponent implements OnInit {
+    constructor(private router: Router) {
+    }
 
+    ngOnInit(): void {
+    }
+
+    cancelClickedHandler() {
+        this.router.navigate(['/events']);
+    }
 }
