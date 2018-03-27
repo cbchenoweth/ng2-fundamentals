@@ -24,7 +24,7 @@ export class CreateEventComponent implements OnInit {
         console.log(formValues);
     }
 
-    cancelClickedHandler() {
+    cancel() {
         this.router.navigate(['/events']);
     }
 }
