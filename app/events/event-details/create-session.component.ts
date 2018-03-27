@@ -25,6 +25,7 @@ import {ISession, restrictedWords} from "../shared/index";
 })
 export class CreateSessionComponent implements OnInit {
     @Output() saveNewSession = new EventEmitter<ISession>();
+    @Output() cancelCreateSession = new EventEmitter();
 
     name: FormControl;
     presenter: FormControl;
@@ -72,5 +73,9 @@ export class CreateSessionComponent implements OnInit {
         };
 
         this.saveNewSession.emit(newSession);
+    }
+
+    cancel() {
+        this.cancelCreateSession.emit();
     }
 }
