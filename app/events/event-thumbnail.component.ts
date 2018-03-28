@@ -15,7 +15,7 @@ import {IEvent} from "./shared";
                 <span *ngSwitchCase="'10:00 am'">(Late Start)</span>
                 <span *ngSwitchDefault>(Normal Start)</span>
             </div>
-            <div>Price: \${{theEvent?.price}}</div>
+            <div>Price: {{theEvent?.price | currency:'USD':true}}</div>
             <div *ngIf="theEvent?.location">
                 <span>Location: {{theEvent?.location?.address}}</span>
                 <span class="pad-left">{{theEvent?.location?.city}}, {{theEvent?.location?.country}}</span>
