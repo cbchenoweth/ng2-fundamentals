@@ -19,7 +19,9 @@ export class UserProfileComponent implements OnInit {
     private firstName: FormControl;
     private lastName: FormControl;
 
-    constructor(private authService: AuthService, private router: Router) {
+    constructor(
+        private authService: AuthService,
+        private router: Router) {
 
     }
 
