@@ -23,7 +23,7 @@ import {Component, Input, OnInit} from "@angular/core";
     `,
     styles: [
         `
-            .modal-body {height: 250px; overflow-y: scroll;}
+            .modal-body {max-height: 250px; overflow-y: scroll;}
         `
     ]
 })

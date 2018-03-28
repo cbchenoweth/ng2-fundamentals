@@ -22,6 +22,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CollapsibleWellComponent} from "./common/collapsible-well.component";
 import {JQUERY_TOKEN} from "./common/jQuery.service";
 import {SimpleModalComponent} from "./common/simple-modal.component";
+import {ModalTriggerDirective} from "./common/modal-trigger.directive";
 
 declare let toastr: Toastr;
 declare let jQuery: Object;
@@ -46,7 +47,9 @@ declare let jQuery: Object;
         SimpleModalComponent,
         Error404Component,
 
-        DurationPipe
+        DurationPipe,
+
+        ModalTriggerDirective
     ],
     providers: [
         EventsService,
