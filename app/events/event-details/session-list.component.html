@@ -1,7 +1,11 @@
 <div class="row" *ngFor="let session of sessions">
     <div class="col-md-10">
-        <collapsible-well [title]="session.name">
-            <div class="well">
+        <collapsible-well>
+            <div collapsible-well-title>
+                {{session.name}}
+                <!--<i *ngIf="session.voters.length > 3" class="glyphicon glyphicon-fire" style="color: red"></i>-->
+            </div>
+            <div collapsible-well-body>
                 <h6>{{session.presenter}}</h6>
                 <span>Duration: {{session.duration}}</span><br />
                 <span>Level: {{session.level}}</span>
