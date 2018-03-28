@@ -1,8 +1,9 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, Inject, OnInit} from "@angular/core";
 import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "./auth.service";
 import {Router} from "@angular/router";
 import {IUser} from "./user.model";
+import {Toastr, TOASTR_TOKEN} from "../common/toastr.service";
 
 @Component({
     templateUrl: 'app/users/user-profile.component.html',
@@ -21,7 +22,8 @@ export class UserProfileComponent implements OnInit {
 
     constructor(
         private authService: AuthService,
-        private router: Router) {
+        private router: Router,
+        @Inject(TOASTR_TOKEN) private toastr: Toastr) {
 
     }
 
@@ -43,7 +45,7 @@ export class UserProfileComponent implements OnInit {
     saveProfile(formValues: any) {
         if(this.profileForm.valid) {
             this.authService.updateCurrentUser(formValues.firstName, formValues.lastName);
-            this.navigateToEventsRoute();
+            this.toastr.success('Profile Saved!');
         }
     }
 
