@@ -24,6 +24,7 @@ import {JQUERY_TOKEN} from "./common/jQuery.service";
 import {SimpleModalComponent} from "./common/simple-modal.component";
 import {ModalTriggerDirective} from "./common/modal-trigger.directive";
 import {UpvoteComponent} from "./events/event-details/upvote.component";
+import {VoterService} from "./events/event-details/voter.service";
 
 declare let toastr: Toastr;
 declare let jQuery: Object;
@@ -55,6 +56,7 @@ declare let jQuery: Object;
     ],
     providers: [
         EventsService,
+        VoterService,
         {provide: TOASTR_TOKEN, useValue: toastr},
         {provide: JQUERY_TOKEN, useValue: jQuery},
         EventRouteActivatorService,
