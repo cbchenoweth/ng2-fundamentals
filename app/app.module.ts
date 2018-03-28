@@ -2,8 +2,16 @@ import {NgModule} from "@angular/core";
 import {BrowserModule} from "@angular/platform-browser";
 import {EventsAppComponent} from "./events-app.component";
 import {
-    EventsListComponent, EventThumbnailComponent, EventDetailsComponent, CreateEventComponent,
-    EventRouteActivatorService, EventListResolverService, EventsService, CreateSessionComponent, SessionListComponent
+    EventsListComponent,
+    EventThumbnailComponent,
+    EventDetailsComponent,
+    CreateEventComponent,
+    EventRouteActivatorService,
+    EventListResolverService,
+    EventsService,
+    CreateSessionComponent,
+    SessionListComponent,
+    DurationPipe
 } from "./events/index";
 import {NavBarComponent} from "./nav/nav-bar.component";
 import {ToastrService} from "./common/toastr.service";
@@ -30,7 +38,9 @@ import {CollapsibleWellComponent} from "./common/collapsible-well.component";
         CreateSessionComponent,
         NavBarComponent,
         CollapsibleWellComponent,
-        Error404Component
+        Error404Component,
+
+        DurationPipe
     ],
     providers: [
         EventsService,
@@ -49,7 +59,7 @@ export class AppModule {
 }
 
 function checkCreateEventComponentDirtyState(component: CreateEventComponent) {
-    if(component.isDirty)
+    if (component.isDirty)
         return window.confirm('event not saved!  do you really want to cancel?');
     return true;
 }
