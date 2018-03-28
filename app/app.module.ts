@@ -20,8 +20,11 @@ import {Error404Component} from "./errors/404.component";
 import {AuthService} from "./users/auth.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CollapsibleWellComponent} from "./common/collapsible-well.component";
+import {JQUERY_TOKEN} from "./common/jQuery.service";
+import {SimpleModalComponent} from "./common/simple-modal.component";
 
 declare let toastr: Toastr;
+declare let jQuery: Object;
 
 @NgModule({
     imports: [
@@ -40,6 +43,7 @@ declare let toastr: Toastr;
         CreateSessionComponent,
         NavBarComponent,
         CollapsibleWellComponent,
+        SimpleModalComponent,
         Error404Component,
 
         DurationPipe
@@ -47,6 +51,7 @@ declare let toastr: Toastr;
     providers: [
         EventsService,
         {provide: TOASTR_TOKEN, useValue: toastr},
+        {provide: JQUERY_TOKEN, useValue: jQuery},
         EventRouteActivatorService,
         {provide: 'canDeactivateCreateEvent', useValue: checkCreateEventComponentDirtyState},
         EventListResolverService,
