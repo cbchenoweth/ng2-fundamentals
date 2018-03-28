@@ -33,6 +33,14 @@ export class SessionListComponent implements OnInit, OnChanges {
             this.visibleSessions = this.sessions.filter(s => s.level.toLowerCase() === filterBy);
         }
     }
+
+    toggleVote(session: ISession) {
+
+    }
+
+    userHasVoted(session: ISession) {
+
+    }
 }
 
 function sortByNameAsc(s1: ISession, s2: ISession) {

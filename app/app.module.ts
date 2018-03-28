@@ -23,6 +23,7 @@ import {CollapsibleWellComponent} from "./common/collapsible-well.component";
 import {JQUERY_TOKEN} from "./common/jQuery.service";
 import {SimpleModalComponent} from "./common/simple-modal.component";
 import {ModalTriggerDirective} from "./common/modal-trigger.directive";
+import {UpvoteComponent} from "./events/event-details/upvote.component";
 
 declare let toastr: Toastr;
 declare let jQuery: Object;
@@ -40,6 +41,7 @@ declare let jQuery: Object;
         EventThumbnailComponent,
         EventDetailsComponent,
         SessionListComponent,
+        UpvoteComponent,
         CreateEventComponent,
         CreateSessionComponent,
         NavBarComponent,
