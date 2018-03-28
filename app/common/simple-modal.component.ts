@@ -31,6 +31,7 @@ import {JQUERY_TOKEN} from "./jQuery.service";
 export class SimpleModalComponent implements OnInit {
     @Input() title: string;
     @Input() elementId: string;
+    @Input() closeOnBodyClick: string;
     @ViewChild('modalcontainer') containerElRef: ElementRef;
 
     constructor(@Inject(JQUERY_TOKEN) private jQuery: any) {
@@ -41,9 +42,11 @@ export class SimpleModalComponent implements OnInit {
     }
 
     closeModal() {
-        this.jQuery(this.containerElRef.nativeElement).modal('hide');
+        if(this.closeOnBodyClick && this.closeOnBodyClick.toLowerCase() === 'true') {
+            this.jQuery(this.containerElRef.nativeElement).modal('hide');
 
-        // this also would have worked, and not needed the "View Child"
-        // this.jQuery(`#${this.elementId}`).modal('hide');
+            // this also would have worked, and not needed the "View Child"
+            // this.jQuery(`#${this.elementId}`).modal('hide');
+        }
     }
 }
