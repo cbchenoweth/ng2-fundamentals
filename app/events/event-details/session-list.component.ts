@@ -12,9 +12,10 @@ export class SessionListComponent implements OnInit, OnChanges {
     @Input() filterBy: string;
     @Input() sortBy: string;
     visibleSessions: ISession[] = [];
+    authService: AuthService;
 
-    constructor(private authService: AuthService, private voterService: VoterService) {
-
+    constructor(authService: AuthService, private voterService: VoterService) {
+        this.authService = authService;
     }
 
     ngOnInit(): void {

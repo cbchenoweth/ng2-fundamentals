@@ -9,9 +9,10 @@ import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
                     <i *ngIf="hasVoted" class="glyphicon glyphicon-heart"></i>
                     <i *ngIf="!hasVoted" class="glyphicon glyphicon-heart-empty"></i>
                 </div>
-            </div>
-            <div class="badge badge-inverse votingCount">
-                <div>{{count}}</div>
+
+                <div class="badge badge-inverse votingCount">
+                    <div>{{count}}</div>
+                </div>
             </div>
         </div>
     `,
