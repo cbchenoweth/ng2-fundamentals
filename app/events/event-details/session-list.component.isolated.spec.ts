@@ -25,6 +25,7 @@ describe('SessionListComponent', function () {
             sessionListComponent.ngOnChanges({});
 
             expect(sessionListComponent.visibleSessions.length).toBe(2);
+            expect(sessionListComponent.visibleSessions.length).toBe(2);
         });
 
         it('should sort sessions', function () {
