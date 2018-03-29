@@ -6,12 +6,11 @@ import {
     EventThumbnailComponent,
     EventDetailsComponent,
     CreateEventComponent,
-    EventRouteActivatorService,
     EventListResolverService,
     EventsService,
     CreateSessionComponent,
     SessionListComponent,
-    DurationPipe
+    DurationPipe, EventResolverService
 } from "./events/index";
 import {NavBarComponent} from "./nav/nav-bar.component";
 import {Toastr, TOASTR_TOKEN} from "./common/toastr.service";
@@ -63,9 +62,9 @@ declare let jQuery: Object;
         VoterService,
         {provide: TOASTR_TOKEN, useValue: toastr},
         {provide: JQUERY_TOKEN, useValue: jQuery},
-        EventRouteActivatorService,
         {provide: 'canDeactivateCreateEvent', useValue: checkCreateEventComponentDirtyState},
         EventListResolverService,
+        EventResolverService,
         AuthService
     ],
     bootstrap: [
