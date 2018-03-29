@@ -10,7 +10,7 @@ export class EventListResolverService implements Resolve<any> {
     }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
-        return this.eventService.getEvents().map(events => events);
+        return this.eventService.getEvents();
     }
 
 }
