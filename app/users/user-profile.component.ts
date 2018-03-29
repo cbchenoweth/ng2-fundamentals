@@ -65,4 +65,10 @@ export class UserProfileComponent implements OnInit {
     private controlIsValid(control: AbstractControl) {
         return control.valid || control.untouched;
     }
+
+    logout() {
+        this.authService.logout().subscribe(() => {
+            this.router.navigate(['/users/login']);
+        });
+    }
 }
