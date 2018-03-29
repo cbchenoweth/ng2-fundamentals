@@ -30,11 +30,6 @@ export class EventsService {
             .catch(this.handleError);
     }
 
-    updateEvent(event: IEvent) {
-        const index = EVENTS.findIndex(e => e.id === event.id);
-        EVENTS[index] = event;
-    }
-
     searchSessions(searchTerm: string): Observable<ISession[]> {
         let results: ISession[] = [];
 
