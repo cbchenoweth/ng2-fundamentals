@@ -18,7 +18,6 @@ export class VoterService {
 
         const url = `/api/events/${eventId}/sessions/${session.id}/voters/${voterName}`;
         return this.http.post(url, {}, options)
-            .map(response => response.json())
             .catch(this.handleError)
             .subscribe();
     }
