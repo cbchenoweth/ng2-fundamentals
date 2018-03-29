@@ -1,8 +1,7 @@
 import {Injectable} from "@angular/core";
 import {IUser} from "./user.model";
-import {Headers, Http, RequestOptions, Response} from "@angular/http";
+import {Headers, Http, RequestOptions} from "@angular/http";
 import {Observable} from "rxjs/Rx";
-import {el} from "@angular/platform-browser/testing/src/browser_util";
 
 @Injectable()
 export class AuthService {
@@ -35,6 +34,12 @@ export class AuthService {
 
         currentUser.firstName = firstName;
         currentUser.lastName = lastName;
+
+
+        const headers = new Headers({'Content-Type': 'application/json'});
+        const options = new RequestOptions({headers: headers});
+
+        return this.http.put(`/api/users/${this.currentUser.id}`, this.currentUser, options);
     }
 
     checkAuthenticationStatus() {
