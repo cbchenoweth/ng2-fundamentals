@@ -28,7 +28,6 @@ export class VoterService {
 
         const url = `/api/events/${eventId}/sessions/${session.id}/voters/${voterName}`;
         return this.http.delete(url)
-            .map(response => response.json())
             .catch(this.handleError)
             .subscribe();
     }
