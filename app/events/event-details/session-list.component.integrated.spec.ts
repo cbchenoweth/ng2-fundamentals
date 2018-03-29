@@ -66,6 +66,7 @@ describe('SessionListComponent', function () {
             fixture.detectChanges();
 
             expect(element.querySelector('[collapsible-well-title]').textContent).toContain(session1.name);
+            expect(debugElement.query(By.css('[collapsible-well-title]')).nativeElement.textContent).toContain(session1.name); // different way to look up html stuff
         });
     });
 });
