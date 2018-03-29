@@ -8,6 +8,7 @@ import {VoterService} from "./voter.service";
     templateUrl: 'app/events/event-details/session-list.component.html'
 })
 export class SessionListComponent implements OnInit, OnChanges {
+    @Input() eventId: number;
     @Input() sessions: ISession[];
     @Input() filterBy: string;
     @Input() sortBy: string;
@@ -41,9 +42,9 @@ export class SessionListComponent implements OnInit, OnChanges {
         const userName = this.authService.currentUser.userName;
 
         if(this.userHasVoted(session)) {
-            this.voterService.removeVoter(session, userName);
+            this.voterService.removeVoter(this.eventId, session, userName);
         } else {
-            this.voterService.addVoter(session, userName);
+            this.voterService.addVoter(this.eventId, session, userName);
         }
 
         if(this.sortBy === 'votes') {
